@@ -7,7 +7,7 @@ pipeline {
 
    stages {
      
-     stage('code checkout') {
+     stage('Code Checkout') {
         steps {
         git credentialsId: 'git', url: 'https://github.com/Devops2272/New-Maven-Branch.git'
         
