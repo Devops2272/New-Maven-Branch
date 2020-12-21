@@ -51,18 +51,13 @@ kubectl apply -f kubedeploy.yml''', execTimeout: 120000, flatten: false, makeEmp
       }
     }  
      
-     
- stage('WS_Cleanup') {
-        steps {
- post {
+    post {
     always {
       cleanWs cleanWhenNotBuilt: false, notFailBuild: true
     }
   }
- }
- }
- 
- 
+     
+     
 }
 
 }
