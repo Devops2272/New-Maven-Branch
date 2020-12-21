@@ -41,12 +41,27 @@ stage('Build Docker Image') {
         sshPublisher(publishers: [sshPublisherDesc(configName: 'Docker', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'docker build -t newapp .', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
         
        }
-  post {
+     }
+ 
+ stage ('Kubernates Deploy') {
+      steps {
+        sshPublisher(publishers: [sshPublisherDesc(configName: 'Docker', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''kubectl delete deployment wildfly,
+kubectl delete svc demo,
+kubectl apply -f kubedeploy.yml''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+      }
+    }  
+     
+     
+ stage('WS_Cleanup') {
+        steps {
+ post {
     always {
       cleanWs cleanWhenNotBuilt: false, notFailBuild: true
     }
   }
-     }
+ }
+ }
+ 
  
 }
 
