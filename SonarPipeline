@@ -49,14 +49,13 @@ stage('Build Docker Image') {
 kubectl delete svc demo,
 kubectl apply -f kubedeploy.yml''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
       }
-    }  
-     
+      
     post {
     always {
       cleanWs cleanWhenNotBuilt: false, notFailBuild: true
     }
   }
-     
+    }  
      
 }
 
