@@ -35,7 +35,7 @@ options {
    stage('Deploye to Nexus') {
   steps {
 
-   nexusArtifactUploader artifacts: [[artifactId: 'maven-web-application', classifier: '', file: 'target/maven-web-application.war', type: 'war']], credentialsId: 'Nexus', groupId: 'com.mt', nexusUrl: 'localhost:8085', nexusVersion: 'nexus3', protocol: 'http', repository: 'Maven-Java-Project-Snapshot', version: '6.0-SNAPSHOT'
+   nexusArtifactUploader artifacts: [[artifactId: 'maven-web-application', classifier: '', file: 'target/maven-web-application.war', type: 'war']], credentialsId: 'Nexus', groupId: 'com.mt', nexusUrl: 'localhost:8085', nexusVersion: 'nexus3', protocol: 'http', repository: 'Maven-Java-Project-Snapshot', version: '6.1-SNAPSHOT'
   }
 
 }
