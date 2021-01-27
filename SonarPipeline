@@ -13,7 +13,7 @@ options {
  
      stage('test') {
         steps {
-        sh 'echo "$USER"'
+        sh 'whoami'
         //bat 'icacls "/c/Program Files (x86)/Jenkins" /grant jenkins:F /T'
         bat 'bash.exe'
         sh 'sudo cp /c/Users/Sibu/.kube/config "/c/Program Files (x86)/Jenkins/.kube/"'
