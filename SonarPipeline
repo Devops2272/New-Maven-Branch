@@ -42,8 +42,8 @@ options {
 stage('test') {
         steps {
         
-        sh 'cd "/c/Users/Sibu/Desktop/Devops/Ansible/Docker&kube/"'
-        sh 'kubectl apply -f kubedeploy.yml'
+        sh 'cd "/c/Users/Sibu/Desktop/Devops/Ansible/"'
+        sh 'kubectl apply -f Docker&kube/'
        
         }
      }
