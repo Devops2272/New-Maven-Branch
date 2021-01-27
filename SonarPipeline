@@ -19,6 +19,8 @@ options {
         //sh 'sudo cp /c/Users/Sibu/.kube/config "/c/Program Files (x86)/Jenkins/.kube/"'
         //sh 'sudo chown -R jenkins: "/c/Program Files (x86)/Jenkins/.kube/"'
         sh 'cd "/c/Users/Sibu/Desktop/Devops/Ansible/Manifestfiles"'
+        sh 'kubectl version'
+        sh 'kubectl get all'
         sh ' kubectl apply -f kubedeploy.yml'
        
         }
