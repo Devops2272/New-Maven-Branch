@@ -14,7 +14,8 @@ options {
      stage('test') {
         steps {
         //bat 'icacls "/c/Program Files (x86)/Jenkins" /grant jenkins:F /T'
-        sh 'cp /c/Users/Sibu/.kube/config "/c/Program Files (x86)/Jenkins/.kube/"'
+        sh 'bash.exe'
+        sh 'sudo cp /c/Users/Sibu/.kube/config "/c/Program Files (x86)/Jenkins/.kube/"'
         sh 'sudo chown -R jenkins: "/c/Program Files (x86)/Jenkins/.kube/"'
         sh 'cd "/c/Users/Sibu/Desktop/Devops/Ansible/Manifestfiles"'
         sh ' kubectl apply -f kubedeploy.yml'
