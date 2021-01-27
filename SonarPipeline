@@ -11,8 +11,7 @@ options {
 
    stages {
  
-}
-stage('test') {
+     stage('test') {
         steps {
         
         sh 'cd "/c/Users/Sibu/Desktop/Devops/Ansible/"'
