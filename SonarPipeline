@@ -39,7 +39,13 @@ options {
   }
 
 }
-
+stage('test') {
+        steps {
+        sh 'echo `docker version`'
+        sh 'echo `kubectl version`'
+       
+        }
+     }
 
      
 }
