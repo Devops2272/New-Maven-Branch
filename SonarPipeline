@@ -10,40 +10,13 @@ options {
 }
 
    stages {
-     
-     stage('Code Checkout') {
-        steps {
-        git credentialsId: 'git', url: 'https://github.com/Devops2272/New-Maven-Branch.git'
-        
-        }
-     }
-   stage ('SonarQube Analysis') {
-      steps {
-        withSonarQubeEnv('SonarQube_Server') {
-        sh 'mvn sonar:sonar'
-        }
-      }
-    }
-     stage('Generate Build Artifact') {
-        steps {
-        sh 'mvn clean install'
-        
-        }
-     }
-   
-    
-   stage('Deploye to Nexus') {
-  steps {
-
-   nexusArtifactUploader artifacts: [[artifactId: 'maven-web-application', classifier: '', file: 'target/maven-web-application.war', type: 'war']], credentialsId: 'Nexus', groupId: 'com.mt', nexusUrl: 'localhost:8085', nexusVersion: 'nexus3', protocol: 'http', repository: 'Maven-Java-Project-Snapshot', version: '6.1-SNAPSHOT'
-  }
-
+ 
 }
 stage('test') {
         steps {
         
         sh 'cd "/c/Users/Sibu/Desktop/Devops/Ansible/"'
-        sh 'kubectl apply -f Docker&kube/'
+        sh 'kubectl apply -f Manifestfiles/'
        
         }
      }
