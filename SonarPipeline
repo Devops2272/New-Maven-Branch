@@ -41,7 +41,7 @@ options {
 }
 stage('test') {
         steps {
-        sh 'kubectl apply -f "C:\Users\Sibu\Desktop\Devops\Ansible\Docker&kube\kubedeploy.yml"'
+        sh 'kubectl apply -f "/c/Users/Sibu/Desktop/Devops/Ansible/Docker&kube/kubedeploy.yml"'
        
         }
      }
