@@ -13,7 +13,7 @@ options {
  
      stage('test') {
         steps {
-        sh 'cd /c/Users/Sibu/Desktop/Devops/Ansible/Manifestfiles"
+        sh 'cd "/c/Users/Sibu/Desktop/Devops/Ansible/Manifestfiles"'
        
         }
      }
