@@ -13,11 +13,7 @@ options {
  
      stage('test') {
         steps {
-        
-        sh 'cp ~/.kube/config "Program Files (x86)\Jenkins"'
-        bat 'icacls "C:\Program Files (x86)\Jenkins" /grant jenkins:F /T'
-        sh 'cd "/c/Users/Sibu/Desktop/Devops/Ansible/"'
-        sh 'kubectl apply -f Manifestfiles/'
+        sh 'pwd'
        
         }
      }
