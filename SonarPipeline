@@ -23,7 +23,8 @@ options {
         //sh 'kubectl get all'
         //sh ' kubectl apply -f kubedeploy.yml'
         //sh '"/c/Program Files (x86)/Jenkins/workspace/Declarative-Pipeline/'
-        sh 'docker build -t appnew .'
+        sh 'docker build -t sibu2272/appnew .'
+      
        
         }
      }
