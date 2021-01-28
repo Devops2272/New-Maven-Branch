@@ -18,11 +18,11 @@ options {
         //bat 'bash.exe'
         //sh 'sudo cp /c/Users/Sibu/.kube/config "/c/Program Files (x86)/Jenkins/.kube/"'
         //sh 'sudo chown -R jenkins: "/c/Program Files (x86)/Jenkins/.kube/"'
-        sh 'cd "/c/Users/Sibu/Desktop/Devops/Ansible/Manifestfiles"'
-        sh 'kubectl version'
-        sh 'kubectl get all'
-        sh ' kubectl apply -f kubedeploy.yml'
-        sh '"/c/Program Files (x86)/Jenkins/workspace/Declarative-Pipeline/'
+        //sh 'cd "/c/Users/Sibu/Desktop/Devops/Ansible/Manifestfiles"'
+        //sh 'kubectl version'
+        //sh 'kubectl get all'
+        //sh ' kubectl apply -f kubedeploy.yml'
+        //sh '"/c/Program Files (x86)/Jenkins/workspace/Declarative-Pipeline/'
         sh 'docker build -t appnew .'
        
         }
