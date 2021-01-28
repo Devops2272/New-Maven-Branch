@@ -13,7 +13,7 @@ options {
  
      stage('test') {
         steps {
-        sh 'whoami'
+        
         //bat 'icacls "/c/Program Files (x86)/Jenkins" /grant jenkins:F /T'
         //bat 'bash.exe'
         //sh 'sudo cp /c/Users/Sibu/.kube/config "/c/Program Files (x86)/Jenkins/.kube/"'
@@ -22,6 +22,8 @@ options {
         sh 'kubectl version'
         sh 'kubectl get all'
         sh ' kubectl apply -f kubedeploy.yml'
+        sh '"/c/Program Files (x86)/Jenkins/workspace/Declarative-Pipeline/'
+        sh 'docker build -t appnew .'
        
         }
      }
