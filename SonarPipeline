@@ -10,19 +10,54 @@ options {
 }
 
    stages {
+   
+       
+   stage('Code Checkout') {
+     steps {
+     // calculate GIT lastest commit short-hash
+
+        gitCommitHash = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
+        shortCommitHash = gitCommitHash.take(7)
+        
+        }
+     }
+     
+     
+   stage('Exicute Unit Test') {
+        steps {
+        sh 'mvn clean test'
+        
+        }
+     }  
+     
+   stage ('SonarQube Analysis') {
+      steps {
+        withSonarQubeEnv('SonarQube_Server') {
+        sh 'mvn sonar:sonar'
+        }
+      }
+    }
+    
+    
+   stage('Generate Build Artifact') {
+      steps {
+        sh 'mvn clean install'
+        
+        }
+     }
+   
+    
+   stage('Deploye to Nexus') {
+  steps {
+
+   nexusArtifactUploader artifacts: [[artifactId: 'maven-web-application', classifier: '', file: 'target/maven-web-application.war', type: 'war']], credentialsId: 'Nexus', groupId: 'com.mt', nexusUrl: 'localhost:8085', nexusVersion: 'nexus3', protocol: 'http', repository: 'Maven-Java-Project-Snapshot', version: '6.1-SNAPSHOT'
+    
+    }
+  }
  
-     stage('test') {
+     stage('Prepare Docker Image') {
         steps {
         
-        //bat 'icacls "/c/Program Files (x86)/Jenkins" /grant jenkins:F /T'
-        //bat 'bash.exe'
-        //sh 'sudo cp /c/Users/Sibu/.kube/config "/c/Program Files (x86)/Jenkins/.kube/"'
-        //sh 'sudo chown -R jenkins: "/c/Program Files (x86)/Jenkins/.kube/"'
-        //sh 'cd "/c/Users/Sibu/Desktop/Devops/Ansible/Manifestfiles"'
-        //sh 'kubectl version'
-        //sh 'kubectl get all'
-        //sh ' kubectl apply -f kubedeploy.yml'
-        //sh '"/c/Program Files (x86)/Jenkins/workspace/Declarative-Pipeline/'
         sh 'docker build -t sibu2272/appnew .'
       
        
