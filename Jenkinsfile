@@ -20,7 +20,7 @@ node{
          stage('Create Package')
          {
           if (isUnix()) {
-           sh 'mvn clean package'   
+           sh 'mvn clean install'   
           }  
           else{
               bat 'mvn clean package'
