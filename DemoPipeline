@@ -1,7 +1,9 @@
 def commit_id
 
 pipeline {
-   agent node1
+   agent {
+  label 'node1'
+}
 options {
   buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')
 }
