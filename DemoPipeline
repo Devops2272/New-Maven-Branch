@@ -2,14 +2,14 @@ def commit_id
 
 pipeline {
    agent {
-  label 'node1'
+  label 'agent'
 }
 options {
   buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')
 }
 
    tools {
-  maven 'maven'
+  maven 'Maven3.8.1'
 }
 
    stages {
