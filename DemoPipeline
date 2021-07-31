@@ -34,8 +34,17 @@ options {
         }
         steps {
            withSonarQubeEnv('SonarQubeServer')  {
-           sh "${scannerHome}/bin/sonar-scanner"
-           sh "sonar.java.binaries=target/classes"
+           sh """${scannerHome}/bin/sonar-scanner"
+           -D sonar.projectVersion=2.0-SNAPSHOT \
+           -D sonar.login=admin \
+           -D sonar.password=Sibu@2272 \
+           -D sonar.projectBaseDir=/var/lib/jenkins/workspace/newProject/ \
+           -D sonar.projectKey=maven-web-application \
+           -D sonar.sourceEncoding=UTF-8 \
+           -D sonar.language=java \
+           -D sonar.sources=maven-web-application/src/main \
+           -D sonar.tests=maven-web-application/src/test \
+           -D sonar.host.url=http://11.2.2.4:9000/"""
 }
   }
      }
