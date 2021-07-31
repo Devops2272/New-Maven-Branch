@@ -42,8 +42,8 @@ options {
            -D sonar.projectKey=maven-web-application \
            -D sonar.sourceEncoding=UTF-8 \
            -D sonar.language=java \
-           -D sonar.sources=**/src/main \
-           -D sonar.tests=**/src/test \
+           -D sonar.sources=/var/lib/jenkins/workspace/newProject/src/main \
+           -D sonar.tests=/var/lib/jenkins/workspace/newProject/src/test \
            -D sonar.host.url=http://11.2.2.4:9000/"""
 }
   }
