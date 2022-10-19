@@ -59,10 +59,8 @@ pipeline {
 		             //sh 'cd docker'
                  //def customImage = docker.build('sibu2272/', "./docker")
                  def customImage = docker.build("my-imagenewmvn:${env.BUILD_ID}")
-                 //docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-                 // This step should not normally be used in your script. Consult the inline help for details.
-                 withDockerRegistry(credentialsId: 'dockerhub', url: 'https://hub.docker.com') {
-}   
+                 //docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') 
+                 withDockerRegistry(credentialsId: 'dockerhub', url: 'https://hub.docker.com'){
                  customImage.push("${env.BUILD_NUMBER}")
 }
            }
