@@ -45,13 +45,13 @@ pipeline {
                   }
         }
         
-        stage('Copy Artifact') {
+        /*stage('Copy Artifact') {
            steps { 
                    sh 'pwd'
 		   sh 'cp -r target/*.jar docker'
 		   sh 'ls -altr docker'
                  }
-        }
+        }*/
          
         stage('Build and push docker image to Registry') {
            steps {
